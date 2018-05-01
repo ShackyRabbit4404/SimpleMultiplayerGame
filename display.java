@@ -7,7 +7,7 @@ public class display extends JPanel{
     boolean S = false;
     boolean D = false;
     String name;
-    Server server = new Server();
+    Client server = new Client();
     ArrayList<Player> players = new ArrayList<Player>();
     public display(String n){
         super();

@@ -1,6 +1,6 @@
 import java.util.*;
-public class Server{
-    public Server(){
+public class Client{
+    public Client(){
         
     }
     public void changeX(int a,String name){
