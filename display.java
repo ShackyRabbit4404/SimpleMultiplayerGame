@@ -12,7 +12,7 @@ public class display extends JPanel{
     public display(String n){
         super();
         name = n;
-         client.addPlayer(name);
+        client.addPlayer(name);
     }
     public void drawing(){
         repaint();
@@ -26,7 +26,6 @@ public class display extends JPanel{
             g.drawRect(p.getX(),p.getY(),10,10);
             g.setColor(Color.BLACK);
             g.drawString(p.getName(),p.getX(),p.getY() + 15);
-            
         }
     }
     public void getAndSetInfo(){
@@ -38,6 +37,6 @@ public class display extends JPanel{
              client.changeY(1,name);
         if(D == true)
              client.changeX(1,name);
-        players =  client.getPlayers();
+        players = client.getPlayers();
     }
 }
