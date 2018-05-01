@@ -7,11 +7,15 @@ public class display extends JPanel{
     boolean S = false;
     boolean D = false;
     String name;
+    Client client = new Client();
     ArrayList<Player> players = new ArrayList<Player>();
     public display(String n){
         super();
         name = n;
-        new Client().addPlayer(name);
+        client.addPlayer(name);
+    }
+    public void drawing(){
+        repaint();
     }
     public void paintComponent(Graphics g){
         super.paintComponent(g);
@@ -26,13 +30,13 @@ public class display extends JPanel{
     }
     public void getAndSetInfo(){
         if(W == true)
-            new Client().changeY(-1,name);
+             client.changeY(-1,name);
         if(A == true)
-            new Client().changeX(-1,name);
+             client.changeX(-1,name);
         if(S == true)
-            new Client().changeY(1,name);
+             client.changeY(1,name);
         if(D == true)
-            new Client().changeX(1,name);
-        players = new Client().getPlayers();
+             client.changeX(1,name);
+        players = client.getPlayers();
     }
 }

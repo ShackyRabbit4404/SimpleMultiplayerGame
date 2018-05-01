@@ -10,7 +10,7 @@ public class main{
         frame.addKeyListener(listener);
         while(true == true){
             screen.getAndSetInfo();
-            screen.repaint();
+            screen.drawing();
         }
     }
 }
