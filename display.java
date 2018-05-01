@@ -14,6 +14,9 @@ public class display extends JPanel{
         name = n;
          client.addPlayer(name);
     }
+    public void drawing(){
+        repaint();
+    }
     public void paintComponent(Graphics g){
         super.paintComponent(g);
         g.setColor(Color.GREEN);
