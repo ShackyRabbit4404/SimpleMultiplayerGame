@@ -22,7 +22,7 @@ public class display extends JPanel{
             g.setColor(Color.RED);
             g.drawRect(p.X,p.Y,10,10);
             g.setColor(Color.BLACK);
-            g.drawString(p.name,p.X - 5,p.Y - 15);
+            g.drawString(p.name,p.X,p.Y + 15);
         }
     }
     public void getAndSetInfo(){
