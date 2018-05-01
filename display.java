@@ -13,6 +13,7 @@ public class display extends JPanel{
         super();
         name = n;
         client.addPlayer(name);
+        players = client.getPlayers();
     }
     public void drawing(){
         repaint();
@@ -36,7 +37,6 @@ public class display extends JPanel{
         if(S == true)
              client.changeY(1,name);
         if(D == true)
-             client.changeX(1,name);
-        players = client.getPlayers();
+             client.changeX(1,name);    
     }
 }
