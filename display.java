@@ -25,18 +25,20 @@ public class display extends JPanel{
         for(Player p: players){
             g.setColor(Color.RED);
             g.drawRect(p.getX(),p.getY(),10,10);
-            g.setColor(Color.BLACK);
+            g.setColor(new Color(0,208,255));
             g.drawString(p.getName(),p.getX(),p.getY() + 15);
         }
     }
     public void getAndSetInfo(){
-        if(W == true)
+        int x = client.getX(name);
+        int y = client.getY(name);
+        if(W == true && y > 0)
              client.changeY(-1,name);
-        if(A == true)
+        if(A == true && x > 0)
              client.changeX(-1,name);
-        if(S == true)
+        if(S == true && y < 1080)
              client.changeY(1,name);
-        if(D == true)
+        if(D == true && x < 1910)
              client.changeX(1,name);    
     }
 }
