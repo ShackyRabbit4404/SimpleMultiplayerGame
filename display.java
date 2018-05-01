@@ -7,12 +7,11 @@ public class display extends JPanel{
     boolean S = false;
     boolean D = false;
     String name;
-    Client server = new Client();
     ArrayList<Player> players = new ArrayList<Player>();
     public display(String n){
         super();
         name = n;
-        server.addPlayer(name);
+        new Client().addPlayer(name);
     }
     public void paintComponent(Graphics g){
         super.paintComponent(g);
@@ -20,20 +19,20 @@ public class display extends JPanel{
         g.fillRect(0,0,1920,1080);
         for(Player p: players){
             g.setColor(Color.RED);
-            g.drawRect(p.X,p.Y,10,10);
+            g.drawRect(p.getX(),p.getY(),10,10);
             g.setColor(Color.BLACK);
-            g.drawString(p.name,p.X,p.Y + 15);
+            g.drawString(p.getName(),p.getX(),p.getY() + 15);
         }
     }
     public void getAndSetInfo(){
         if(W == true)
-            server.changeY(-1,name);
+            new Client().changeY(-1,name);
         if(A == true)
-            server.changeX(-1,name);
+            new Client().changeX(-1,name);
         if(S == true)
-            server.changeY(1,name);
+            new Client().changeY(1,name);
         if(D == true)
-            server.changeX(1,name);
-        players = server.getPlayers();
+            new Client().changeX(1,name);
+        players = new Client().getPlayers();
     }
 }
