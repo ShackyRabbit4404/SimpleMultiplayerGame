@@ -12,6 +12,7 @@ public class display extends JPanel{
     public display(String n){
         super();
         name = n;
+        server.addPlayer(name);
     }
     public void paintComponent(Graphics g){
         super.paintComponent(g);
