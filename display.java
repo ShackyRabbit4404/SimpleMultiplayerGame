@@ -20,9 +20,9 @@ public class display extends JPanel{
         g.fillRect(0,0,1920,1080);
         for(Player p: players){
             g.setColor(Color.RED);
-            g.drawRect(server.getX(p.name),server.getY(p.name),10,10);
+            g.drawRect(p.X,p.Y,10,10);
             g.setColor(Color.BLACK);
-            g.drawString(p.name,server.getX(p.name) - 5,server.getY(p.name) - 15);
+            g.drawString(p.name,p.X - 5,p.Y - 15);
         }
     }
     public void getAndSetInfo(){
