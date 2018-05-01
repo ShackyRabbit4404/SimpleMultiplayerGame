@@ -15,4 +15,11 @@ public class Client{
     public void addPlayer(String name){
         
     }
+    public int getX(String name) {
+        return 1;
+    }
+    public int getY(String name) {
+        return 1;
+    }
+
 }
