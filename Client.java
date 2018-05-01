@@ -6,7 +6,6 @@ public class Client{
     PrintStream ps;
     BufferedReader din;
     InputStream is;
-    
     public Client(){
         try {
             sock = new Socket("127.0.0.1", 11211);
@@ -18,22 +17,34 @@ public class Client{
         }
     }
     public void changeX(int a,String name){
-        ps.println("c:x:");
+        ps.println("c:x:" + name + ":" + a);
+        ps.flush();
     }
     public void changeY(int a,String name){
-        
+        ps.println("c:y:" + name + ":" + a);
+        ps.flush();
     }
     public ArrayList<Player> getPlayers(){
         return new ArrayList<Player>();
     }
     public void addPlayer(String name){
-        
+        ps.println("a:p:" + name);
+        ps.flush();
     }
     public int getX(String name) {
-        return 1;
+        ps.println("g:x:" + name);
+        try {
+            return (Integer.parseInt(din.readLine()));
+        } catch (Exception e) {
+            return -99;
+        }
     }
     public int getY(String name) {
-        return 1;
+        ps.println("g:y:" + name);
+        try {
+            return (Integer.parseInt(din.readLine()));
+        } catch (Exception e) {
+            return -99;
+        }
     }
-
 }
