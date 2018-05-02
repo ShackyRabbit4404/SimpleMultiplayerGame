@@ -16,7 +16,7 @@ public class main{
         frame.setBounds(new Rectangle(0,0,1920,1080));
         frame.setVisible(true);
         String name = Keyboard.readString();
-        while(contains(new Client().getPlayers(),name) == false){
+        while(contains(new Client().getPlayers(),name) == true){
             System.out.println("That name already exists");
             name = Keyboard.readString();
         }
