@@ -24,9 +24,9 @@ public class display extends JPanel{
         g.fillRect(0,0,1920,1080);
         for(Player p: players){
             g.setColor(Color.RED);
-            g.drawRect(p.getX(),p.getY(),10,10);
-            g.setColor(new Color(0,208,255));
-            g.drawString(p.getName(),p.getX(),p.getY() + 15);
+            g.fillRect(p.getX(),p.getY(),20,20);
+            g.setColor(Color.BLACK);
+            g.drawString(p.getName(),p.getX()-3,p.getY() + 30);
         }
     }
     public void getAndSetInfo(){
