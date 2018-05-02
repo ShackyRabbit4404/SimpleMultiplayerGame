@@ -11,7 +11,7 @@ public class main{
         frame.add(screen);
         keyboard listener = new keyboard(screen);
         frame.addKeyListener(listener);
-        while(true == true){
+        while(true){
             screen.getAndSetInfo();
             screen.drawing();
         }
