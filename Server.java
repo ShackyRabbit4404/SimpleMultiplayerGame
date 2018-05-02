@@ -51,15 +51,19 @@ public class Server implements Runnable {
     }
     public void changePX(String name, int amt) {
         int in = indexOfPlayer(name);
+        System.out.println("changing x at index " + in);
         if (in!=-1) {
-            players.get(in).setX(players.get(in).getX()+amt);
+            Player p = players.get(in);
+            players.set(in, new Player(p.getName(),p.getX()+amt,p.getY()));
         }          
         System.out.println("changing x for " + name);
     }
     public void changePY(String name, int amt) {
         int in = indexOfPlayer(name);
+        System.out.println("changing x at index " + in);
         if (in!=-1) {
-            players.get(in).setY(players.get(in).getY()+amt);
+            Player p = players.get(in);
+            players.set(in, new Player(p.getName(),p.getX(),p.getY()+amt));
         }      
         System.out.println("changing y for " + name);
     }
