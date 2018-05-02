@@ -13,6 +13,10 @@ public class display extends JPanel{
         name = n;
         new Client().addPlayer(name);
         players = new Client().getPlayers();
+        /*while(true){
+            getAndSetInfo();
+            drawing();
+        }*/
     }
     public void drawing(){
         repaint();
