@@ -18,18 +18,33 @@ public class Client{
     }
     public void changeX(int a,String name){
         ps.println("c:x:" + name + ":" + a);
-        ps.flush();
     }
     public void changeY(int a,String name){
         ps.println("c:y:" + name + ":" + a);
-        ps.flush();
     }
     public ArrayList<Player> getPlayers(){
-        return new ArrayList<Player>();
+        String line = "";
+        ArrayList<Player> ret = new ArrayList<Player>();
+        try {
+            while(!line.equals("{}{}{}")) {
+                line=din.readLine();
+                System.out.println(line);
+                if (!line.equals("{}{}{}")) {
+                    //name:x:y
+                    String name=line.substring(0,line.indexOf(":"));
+                    line=line.substring(line.indexOf(":")+1);
+                    int x = Integer.parseInt(line.substring(0,line.indexOf(":")));
+                    int y = Integer.parseInt(line.substring(line.indexOf(":")+1));
+                    ret.add(new Player(name,x,y));
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return ret;
     }
     public void addPlayer(String name){
         ps.println("a:p:" + name);
-        ps.flush();
     }
     public int getX(String name) {
         ps.println("g:x:" + name);

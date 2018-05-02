@@ -7,8 +7,10 @@ public class serverRunnable implements Runnable {
     PrintStream ps;
     OutputStream os;
     ArrayList<Player> players;
-    public serverRunnable(Socket clientsocket) {
+    Server server;
+    public serverRunnable(Socket clientsocket, Server serv) {
         client = clientsocket;
+        server=serv;
         try {
             ps = new PrintStream(client.getOutputStream());
             os = client.getOutputStream();
@@ -26,45 +28,39 @@ public class serverRunnable implements Runnable {
             e.printStackTrace();
         }        
         if (line.substring(0,1).equals("c")) {
-            String name = line.substring(4,line.indexOf(":"));
             line=line.substring(4);
-            int amount = line.substring(line.indexOf);
+            String name = line.substring(0,line.indexOf(":"));
+            int amount = Integer.parseInt(line.substring(line.indexOf(":")+1));
             if (line.substring(2,3).equals("x")) {
-                for (Player p : players) {
-                    if (p.getName().equals(name)) {
-                        p.setX(p.getX());
-                        
-                        
-                        break;
-                    }
-                    
-                }
-                    
+                //change player x
+                server.changePX(name, amount);
             } else if (line.substring(2,3).equals("y")) {
-                for (Player p : players) {
-                    if (p.getName().equals(name)) {
-                        
-                        break;
-                    }
-                    
-                    
-                }
-                
+                //change player y
+                server.changePY(name, amount);
             }
         } else if (line.substring(0,1).equals("a")) {
+            String name = line.substring(4);
             if (line.substring(2,3).equals("p")) {
-                
+                //create new player
+                server.addPlayer(name);
             }
         } else if (line.substring(0,1).equals("g")) {
+            String name = line.substring(4);
+            int ret = 0;
             if (line.substring(2,3).equals("x")) {
-                
+                //get player x
+                ret=server.getPX(name);
+                ps.println(ret);
             } else if (line.substring(2,3).equals("y")) {
-                
+                //get player y
+                ret=server.getPY(name);
+                ps.println(ret);
+            } else if (line.substring(2,3).equals("p")) {
+                ArrayList<String> res = server.getPlayers();
+                for (String s : res) {
+                    ps.println(s);
+                }
             }
-        }
-        
-        
-        
-        
+        } 
     }
 }
