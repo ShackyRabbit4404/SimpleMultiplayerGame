@@ -24,6 +24,7 @@ public class main{
             while(true){
                 screen.getAndSetInfo();
                 screen.drawing();
+                Thread.sleep(100);
             }
         }
         catch(Exception e)
