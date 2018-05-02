@@ -23,7 +23,7 @@ public class serverRunnable implements Runnable {
         try {
             din = new BufferedReader(new InputStreamReader(client.getInputStream()));               
             line = din.readLine();
-            System.out.println("Message recieved: " + line);
+            //System.out.println("Message recieved: " + line);
         } catch (Exception e) {
             e.printStackTrace();
         }        
@@ -33,11 +33,11 @@ public class serverRunnable implements Runnable {
             int amount = Integer.parseInt(line2.substring(line2.indexOf(":")+1));
             if (line.substring(2,3).equals("x")) {
                 //change player x
-                System.out.println("changing " + name + " x location");
+                //System.out.println("changing " + name + " x location");
                 server.changePX(name, amount);
             } else if (line.substring(2,3).equals("y")) {
                 //change player y
-                System.out.println("changing " + name + " y location");
+                //System.out.println("changing " + name + " y location");
                 server.changePY(name, amount);
             }
         } else if (line.substring(0,1).equals("a")) {
