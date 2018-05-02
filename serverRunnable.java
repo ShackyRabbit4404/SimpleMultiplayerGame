@@ -58,6 +58,7 @@ public class serverRunnable implements Runnable {
             } else if (line.substring(2,3).equals("p")) {
                 ArrayList<String> res = server.getPlayers();
                 for (String s : res) {
+                    System.out.println(s);
                     ps.println(s);
                 }
             }

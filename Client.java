@@ -26,6 +26,7 @@ public class Client{
     public ArrayList<Player> getPlayers(){
         String line = "";
         ArrayList<Player> ret = new ArrayList<Player>();
+        ps.println("g:p");
         try {
             while(!line.equals("{}{}{}")) {
                 line=din.readLine();
