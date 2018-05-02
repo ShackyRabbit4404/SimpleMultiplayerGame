@@ -8,7 +8,7 @@ public class Client{
     InputStream is;
     public Client(){
         try {
-            sock = new Socket("127.0.0.1", 11211);
+            sock = new Socket("10.1.200.117", 11211);
             ps = new PrintStream(sock.getOutputStream());
             din = new BufferedReader(new InputStreamReader(sock.getInputStream()));
             is = sock.getInputStream();
