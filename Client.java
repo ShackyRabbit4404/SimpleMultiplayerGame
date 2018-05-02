@@ -9,6 +9,7 @@ public class Client{
     public Client(){
         try {
             sock = new Socket("10.1.200.117", 11211);
+            //127.0.0.1 if local
             ps = new PrintStream(sock.getOutputStream());
             din = new BufferedReader(new InputStreamReader(sock.getInputStream()));
             is = sock.getInputStream();
