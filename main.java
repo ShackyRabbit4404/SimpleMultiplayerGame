@@ -4,12 +4,12 @@ import cs1.*;
 import java.util.*;
 public class main{
     /*
-     Boolean W = false;
-     Boolean A = false;
-     Boolean S = false;
-     Boolean D = false;
-     String name;
-     ArrayList<Player> players=new ArrayList<Player>();
+    Boolean W = false;
+    Boolean A = false;
+    Boolean S = false;
+    Boolean D = false;
+    String name;
+    ArrayList<Player> players=new ArrayList<Player>();
      */
     public static void main(String[] args){
         JFrame frame = new JFrame();
@@ -20,22 +20,29 @@ public class main{
         frame.add(screen);
         keyboard listener = new keyboard(screen);
         frame.addKeyListener(listener);
-        while(true){
-            screen.getAndSetInfo();
-            screen.drawing();
+        try{
+            while(true){
+                screen.getAndSetInfo();
+                screen.drawing();
+                Thread.sleep(50);
+            }
+        }
+        catch(Exception e)
+        {
+            System.out.println(e);
         }
     }
     /*
     public void getAndSetInfo(){
-        int x = new Client().getX(name);
-        int y = new Client().getY(name);
-        if(W == true && y >= 0)
-             new Client().changeY(-1,name);
-        if(A == true && x >= 0)
-             new Client().changeX(-1,name);
-        if(S == true && y <= 1080)
-             new Client().changeY(1,name);
-        if(D == true && x <= 1910)
-             new Client().changeX(1,name);    
+    int x = new Client().getX(name);
+    int y = new Client().getY(name);
+    if(W == true && y >= 0)
+    new Client().changeY(-1,name);
+    if(A == true && x >= 0)
+    new Client().changeX(-1,name);
+    if(S == true && y <= 1080)
+    new Client().changeY(1,name);
+    if(D == true && x <= 1910)
+    new Client().changeX(1,name);    
     }*/
 }
