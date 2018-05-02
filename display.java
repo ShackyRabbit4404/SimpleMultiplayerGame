@@ -37,12 +37,12 @@ public class display extends JPanel{
         int x = new Client().getX(name);
         int y = new Client().getY(name);
         if(W == true && y >= 0)
-             new Client().changeY(-1,name);
+             new Client().changeY(-5,name);
         if(A == true && x >= 0)
-             new Client().changeX(-1,name);
+             new Client().changeX(-5,name);
         if(S == true && y <= 1080)
-             new Client().changeY(1,name);
+             new Client().changeY(5,name);
         if(D == true && x <= 1910)
-             new Client().changeX(1,name);    
+             new Client().changeX(5,name);    
     }
 }
