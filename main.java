@@ -16,6 +16,10 @@ public class main{
         frame.setBounds(new Rectangle(0,0,1920,1080));
         frame.setVisible(true);
         String name = Keyboard.readString();
+        while(contains(new Client().getPlayers(),name) == false){
+            System.out.println("That name already exists");
+            name = Keyboard.readString();
+        }
         display screen = new display(name);
         frame.add(screen);
         keyboard listener = new keyboard(screen);
@@ -31,6 +35,13 @@ public class main{
         {
             System.out.println(e);
         }
+    }
+    public static boolean contains(ArrayList<Player> players,String name){
+        for(Player p: players){
+            if(p.getName().equals(name))
+                return true;
+        }
+        return false;
     }
     /*
     public void getAndSetInfo(){
