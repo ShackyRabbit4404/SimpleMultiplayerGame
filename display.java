@@ -27,7 +27,7 @@ public class display extends JPanel{
         g.fillRect(0,0,1920,1080);
         for(Player p: players){
             g.setColor(Color.RED);
-            g.fillRect(p.getX(),p.getY(),20,20);
+            g.fillOval(p.getX(),p.getY(),20,20);
             g.setColor(Color.BLACK);
             g.drawString(p.getName(),p.getX()-3,p.getY() + 30);
         }
@@ -36,13 +36,24 @@ public class display extends JPanel{
     public void getAndSetInfo(){
         int x = new Client().getX(name);
         int y = new Client().getY(name);
-        if(W == true && y >= 0)
+        if(W == true && y > 0 && isTouching(0,-1) == false)
              new Client().changeY(-5,name);
-        if(A == true && x >= 0)
+        if(A == true && x > 0 && isTouching(-1,0) == false)
              new Client().changeX(-5,name);
-        if(S == true && y <= 1080)
+        if(S == true && y < 1080 && isTouching(1,0) == false)
              new Client().changeY(5,name);
-        if(D == true && x <= 1910)
+        if(D == true && x < 1910 && isTouching(0,1) == false)
              new Client().changeX(5,name);    
+    }
+    public boolean isTouching(int x,int y){
+        Rectangle r1 = new Rectangle(new Client().getX(name) + x,new Client().getY(name) + y,20,20);
+        for(Player p: players){
+            if(!p.getName().equals(name)){
+                Rectangle r2 = new Rectangle(p.getX(),p.getY(),20,20);
+                if(r1.intersects(r2))
+                    return true;
+            }
+        }
+        return false;
     }
 }
