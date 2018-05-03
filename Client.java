@@ -8,7 +8,7 @@ public class Client{
     InputStream is;
     public Client(){
         try {
-            sock = new Socket("10.7.20.30", 11211);
+            sock = new Socket("71.115.228.195", 11211);
             //127.0.0.1 if local
             ps = new PrintStream(sock.getOutputStream());
             din = new BufferedReader(new InputStreamReader(sock.getInputStream()));
@@ -24,6 +24,7 @@ public class Client{
         ps.println("c:y:" + name + ":" + a);
     }
     public ArrayList<Player> getPlayers(){
+        long startTime = System.nanoTime();
         String line = "";
         ArrayList<Player> ret = new ArrayList<Player>();
         ps.println("g:p");
@@ -43,6 +44,7 @@ public class Client{
         } catch (Exception e) {
             e.printStackTrace();
         }
+        System.out.println("grabbing players took " + (System.nanoTime()-startTime));
         return ret;
     }
     public void addPlayer(String name){
