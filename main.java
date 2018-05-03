@@ -16,9 +16,13 @@ public class main{
         frame.setBounds(new Rectangle(0,0,1920,1080));
         frame.setVisible(true);
         String name = Keyboard.readString();
-        while(contains(new Client().getPlayers(),name) == true){
-            System.out.println("That name already exists");
-            name = Keyboard.readString();
+        try {
+            while(contains(new Client().getPlayers(),name) == true){
+                System.out.println("That name already exists");
+                name = Keyboard.readString();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
         display screen = new display(name);
         frame.add(screen);
