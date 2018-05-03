@@ -27,7 +27,7 @@ public class display extends JPanel{
         g.fillRect(0,0,1920,1080);
         for(Player p: players){
             g.setColor(Color.RED);
-            g.fillOval(p.getX(),p.getY(),20,20);
+            g.fillRect(p.getX(),p.getY(),20,20);
             g.setColor(Color.BLACK);
             g.drawString(p.getName(),p.getX()-3,p.getY() + 30);
         }
@@ -36,13 +36,13 @@ public class display extends JPanel{
     public void getAndSetInfo(){
         int x = new Client().getX(name);
         int y = new Client().getY(name);
-        if(W == true && y > 0 && isTouching(0,-5) == false)
+        if(W == true && y > 0 && isTouching(0,-10) == false)
              new Client().changeY(-5,name);
-        if(A == true && x > 0 && isTouching(-5,0) == false)
+        if(A == true && x > 0 && isTouching(-10,0) == false)
              new Client().changeX(-5,name);
-        if(S == true && y < 1080 && isTouching(5,0) == false)
+        if(S == true && y < 1080 && isTouching(10,0) == false)
              new Client().changeY(5,name);
-        if(D == true && x < 1910 && isTouching(0,5) == false)
+        if(D == true && x < 1910 && isTouching(0,10) == false)
              new Client().changeX(5,name);    
     }
     public boolean isTouching(int x,int y){
