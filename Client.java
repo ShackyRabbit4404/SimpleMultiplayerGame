@@ -31,7 +31,7 @@ public class Client{
         try {
             while(!line.equals("{}{}{}")) {
                 line=din.readLine();
-                System.out.println(line);
+                //System.out.println(line);
                 if (!line.equals("{}{}{}")) {
                     //name:x:y
                     String name=line.substring(0,line.indexOf(":"));
