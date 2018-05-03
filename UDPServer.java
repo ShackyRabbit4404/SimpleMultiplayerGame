@@ -1,11 +1,14 @@
 import java.net.*;
 import java.io.*;
 import java.util.*;
-public class UDPServer {
+public class UDPServer extends Thread {
     private DatagramSocket socket;
     private InetAddress address;    
-    private byte[] buf;  
+    private byte[] buf = new byte[10000];  
     ArrayList<Player> players = new ArrayList<Player>();
+    public static void main(String[] args) {
+        new UDPServer();
+    }
     public UDPServer() {
         try {
             socket = new DatagramSocket(11211);
