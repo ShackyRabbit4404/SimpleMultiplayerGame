@@ -28,10 +28,15 @@ public class main{
         frame.add(screen);
         keyboard listener = new keyboard(screen);
         frame.addKeyListener(listener);
+        long start = 0;
         try{
             while(true){
+                start = System.nanoTime();
                 screen.getAndSetInfo();
+                System.out.println("getAndSetInfo() time: " + (System.nanoTime() - start));
+                start = System.nanoTime();
                 screen.drawing();
+                System.out.println("drawing() time: " + (System.nanoTime() - start));
                 Thread.sleep(200);
             }
         }

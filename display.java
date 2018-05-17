@@ -45,13 +45,13 @@ public class display extends JPanel{
         try {
             int x = new Client().getX(name);
             int y = new Client().getY(name);
-            if(W == true && y > 0 && isTouching() == false)
+            if(W == true && y > 0 /*&& isTouching() == false*/)
                  new Client().changeY(-5,name);
-            if(A == true && x > 0 && isTouching() == false)
+            if(A == true && x > 0 /*&& isTouching() == false*/)
                  new Client().changeX(-5,name);
-            if(S == true && y < 1080 && isTouching() == false)
+            if(S == true && y < 1080 /*&& isTouching() == false*/)
                  new Client().changeY(5,name);
-            if(D == true && x < 1910 && isTouching() == false)
+            if(D == true && x < 1910 /*&& isTouching() == false*/)
                  new Client().changeX(5,name);   
         } catch (Exception e) {
             e.printStackTrace();
